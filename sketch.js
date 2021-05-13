@@ -23,7 +23,10 @@ function setup(){
 function draw(){
 
     // add condition to check if any background image is there to add
-
+if(backgroundImg)
+    background(backgroundImg);
+    else
+    background("pink")
 
     Engine.update(engine);
 
@@ -35,19 +38,23 @@ function draw(){
 async function getBackgroundImg(){
 
     // write code to fetch time from API
-var response= await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata")
+var response= await fetch("https://worldtimeapi.org/api/timezone/Asia/Kolkata")
     //change the data in JSON format
+    var responseJason=await response.json(); 
 var dateTime=responseJson.datetime
+
     // write code slice the datetime
 var hour = datetime.slice(11,13)
 console.log(hour)
     // add conditions to change the background images from sunrise to sunset
-    if(hour>=0&hour<2){
+    if(hour>=84&hour<86){
+    bg="sunrise1.png"
        
         }
        
          }
 
     //load the image in backgroundImg variable here
+backgroundImg=loadImage(bg)
 
 
